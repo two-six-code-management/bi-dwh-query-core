@@ -55,7 +55,7 @@ const LITERAL_RULES: readonly LiteralRule[] = [
 
 /**
  * 値を Athena のリテラルにする。
- * 配列は要素をカンマ区切りにし（IN (:array) 用）、空配列は NULL にする（Sequelize と同じ）。
+ * 配列は要素をカンマ区切りにし（IN (:array) 用）、空配列は NULL にする（IN () の構文エラーを避ける。RDS の実行役も同じにする）。
  * 日付・日時は biSqlDate / biSqlTimestamp で渡す（Date はタイムゾーンが曖昧なため受け付けない）。
  * @param value 値
  */

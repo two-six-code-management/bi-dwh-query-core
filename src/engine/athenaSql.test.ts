@@ -33,7 +33,7 @@ test('値をAthenaのリテラルにする', () => {
     );
 });
 
-test('配列は要素をカンマ区切りにし、空配列はNULLにする（SequelizeのIN展開と同じ）', () => {
+test('配列は要素をカンマ区切りにし、空配列はNULLにする（IN () の構文エラーを避ける）', () => {
     assert.equal(toAthenaLiteral(['a', 'b']), "'a', 'b'");
     assert.equal(toAthenaLiteral([1, 2, 3]), '1, 2, 3');
     assert.equal(toAthenaLiteral([]), 'NULL');
