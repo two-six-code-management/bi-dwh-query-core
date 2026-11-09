@@ -38,9 +38,9 @@
     "@aws-sdk/client-athena": "3.552.0",
     "@types/node": "20.19.43",
     "aws-sdk-client-mock": "4.1.0",
+    "prettier": "2.8.8",
     "tsx": "4.23.15",
-    "typescript": "7.0.2",
-    "prettier": "2.8.8"
+    "typescript": "5.9.3"
   },
   "repository": {
     "type": "git",

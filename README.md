@@ -182,7 +182,8 @@ npm run format
 ```
 
 - `dist/` はコミットしません。git の依存として入れたとき、`prepare` でビルドされます。
-  - ビルドは `tsc` だけで行います。使う側の CI が Node 16 でもビルドできるようにするためです（TypeScript 7 は Node 16.20 以上で動きます）。
+  - ビルドは `tsc` だけで行います。使う側の CI が Node 16 でもビルドできるようにするためです。
+  - TypeScript は 5.9 にしています。TypeScript 7 は、`engines` では Node 16.20 以上とありますが、実際には Node 16 で `tsc` が起動しません（`ERR_UNKNOWN_FILE_EXTENSION`）。
   - devDependencies は使う側の `npm install` のたびに入るため、増やさないでください。
 - 実際の DB での確認は、ORM のパッケージの結合テストで行います。
 
