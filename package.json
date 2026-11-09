@@ -1,0 +1,49 @@
+{
+  "name": "bi-dwh-query-core",
+  "version": "0.1.0",
+  "description": "BI集計の問い合わせを、RDS（MySQL / PostgreSQL）と Amazon Athena のどちらでも実行できるようにする核。呼び出し側はデータソースだけを使い、エンジンを意識しない",
+  "license": "MIT",
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./testing": {
+      "types": "./dist/testing/index.d.ts",
+      "default": "./dist/testing/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=16.20.0"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "node --import tsx --test src/*.test.ts src/*/*.test.ts",
+    "build": "node scripts/build.mjs",
+    "prepare": "node scripts/build.mjs",
+    "format": "prettier --write \"src/**/*.ts\" \"scripts/**/*.mjs\"",
+    "format:check": "prettier --check \"src/**/*.ts\" \"scripts/**/*.mjs\""
+  },
+  "peerDependencies": {
+    "@aws-sdk/client-athena": ">=3.552.0"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-athena": "3.552.0",
+    "@types/node": "20.19.43",
+    "aws-sdk-client-mock": "4.1.0",
+    "prettier": "2.8.8",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/two-six-code-management/bi-dwh-query-core.git"
+  }
+}
